@@ -26,3 +26,6 @@ do
 
   ln -s "$path/$dotfile" $home_dotfile
 done
+
+# source updated .zshrc
+exec zsh -l

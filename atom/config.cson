@@ -1,0 +1,83 @@
+"*":
+  "exception-reporting":
+    userId: "32a1cf4c-e895-e70d-1592-704d5505050b"
+  welcome:
+    showOnStartup: false
+  core:
+    audioBeep: false
+    projectHome: "~/Sites"
+    disabledPackages: [
+      "jshint"
+      "autocomplete-snippets"
+    ]
+    ignoredNames: [
+      ".git"
+      ".bundle"
+      ".vagrant"
+      ".DS_Store"
+      "dist"
+      "tmp"
+      "bower_components"
+      "node_modules"
+    ]
+  editor:
+    invisibles: {}
+    showInvisibles: true
+    fontSize: 11
+    preferredLineLength: 120
+    showIndentGuide: true
+    autoIndentOnPaste: false
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
+  "ember-cli-helper": {}
+  "tree-view":
+    hideIgnoredNames: true
+  "git-diff": {}
+  "line-ending-selector":
+    defaultLineEnding: "LF"
+  "markdown-preview": {}
+  "status-bar": {}
+  "bracket-matcher":
+    autocompleteSmartQuotes: false
+    autocompleteBrackets: false
+  jshint:
+    validateOnlyOnSave: true
+  "highlight-selected":
+    lightTheme: true
+  "find-and-replace": {}
+  "linter-phpcs":
+    executablePath: "/usr/local/bin/phpcs"
+  linter:
+    lintOnFly: false
+    errorPanelHeight: 91
+  "linter-jscs":
+    esnext: true
+    onlyConfig: true
+    displayAs: "jscs Error"
+  "linter-jshint":
+    executablePath: "/usr/local/bin/jshint"
+    disableWhenNoJshintrcFileInPath: true
+  "autocomplete-plus":
+    useLocalityBonus: false
+    enableBuiltinProvider: false
+    includeCompletionsFromAllBuffers: false
+    strictMatching: true
+  "atom-ternjs":
+    caseInsensitive: false
+    useSnippets: false
+    lint: false
+    excludeLowerPriorityProviders: true
+    guess: false
+    displayAboveSnippets: true
+    documentation: false
+    urls: false
+    origins: false
+    inlineFnCompletion: false
+  "autocomplete-php": {}
+".apiary.source":
+  editor:
+    preferredLineLength: 120
+".json.source":
+  editor:
+    preferredLineLength: 120

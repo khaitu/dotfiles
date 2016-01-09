@@ -27,5 +27,29 @@ do
   ln -s "$path/$dotfile" $home_dotfile
 done
 
+# sync atom settings
+atomconfigs=(config.cson init.coffee keymap.cson packages.cson snippets.cson styles.less)
+
+for atomconfig in ${atomconfigs[@]}
+do
+  local_atomconfig="$HOME/.atom/$atomconfig"
+
+  if [ -h $local_atomconfig ]
+  then
+    rm $local_atomconfig
+  fi
+
+  if [ -f $local_atomconfig ]
+  then
+    echo $local_atomconfig
+    mv $local_atomconfig "$local_atomconfig.backup"
+  fi
+
+  ln -s "$path/atom/$atomconfig" $local_atomconfig
+done
+
+# ensure package sync is installed
+apm install package-sync 2&> /dev/null
+
 # source updated .zshrc
 exec zsh -l

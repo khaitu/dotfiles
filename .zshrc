@@ -16,6 +16,9 @@ unsetopt share_history
 # Customize to your needs...
 for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
 
+# Remove RPROMPT
+RPROMPT=''
+
 # Prompt segments (from agnoster)
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR="\ue0b0"

@@ -41,7 +41,6 @@ do
 
   if [ -f $local_atomconfig ]
   then
-    echo $local_atomconfig
     mv $local_atomconfig "$local_atomconfig.backup"
   fi
 

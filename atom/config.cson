@@ -1,14 +1,34 @@
 "*":
-  "exception-reporting":
-    userId: "32a1cf4c-e895-e70d-1592-704d5505050b"
-  welcome:
-    showOnStartup: false
+  "atom-ternjs":
+    caseInsensitive: false
+    displayAboveSnippets: true
+    documentation: false
+    excludeLowerPriorityProviders: true
+    guess: false
+    inlineFnCompletion: false
+    lint: false
+    origins: false
+    urls: false
+    useSnippets: false
+  "autocomplete-php": {}
+  "autocomplete-plus":
+    enableBuiltinProvider: false
+    includeCompletionsFromAllBuffers: false
+    strictMatching: true
+    useLocalityBonus: false
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
   core:
     audioBeep: false
-    projectHome: "~/Sites"
     disabledPackages: [
       "jshint"
       "autocomplete-snippets"
+      "spell-check"
+      "linter-jscs"
+      "linter-jshint"
+      "linter-phpcs"
+      "pinned-tabs"
     ]
     ignoredNames: [
       ".git"
@@ -20,61 +40,54 @@
       "bower_components"
       "node_modules"
     ]
+    projectHome: "~/Sites"
   editor:
+    autoIndentOnPaste: false
+    fontSize: 13
     invisibles: {}
-    showInvisibles: true
-    fontSize: 11
     preferredLineLength: 120
     showIndentGuide: true
-    autoIndentOnPaste: false
-  tabs:
-    enableVcsColoring: true
-    usePreviewTabs: true
+    showInvisibles: true
   "ember-cli-helper": {}
-  "tree-view":
-    hideIgnoredNames: true
+  "exception-reporting":
+    userId: "32a1cf4c-e895-e70d-1592-704d5505050b"
+  "file-icons":
+    coloured: false
+    onChanges: true
+  "find-and-replace": {}
   "git-diff": {}
-  "line-ending-selector":
-    defaultLineEnding: "LF"
-  "markdown-preview": {}
-  "status-bar": {}
-  "bracket-matcher":
-    autocompleteSmartQuotes: false
-    autocompleteBrackets: false
-  jshint:
-    validateOnlyOnSave: true
   "highlight-selected":
     lightTheme: true
-  "find-and-replace": {}
-  "linter-phpcs":
-    executablePath: "/usr/local/bin/phpcs"
+  jshint:
+    validateOnlyOnSave: true
+  "line-ending-selector":
+    defaultLineEnding: "LF"
   linter:
-    lintOnFly: false
     errorPanelHeight: 91
+    lintOnFly: false
+  "linter-eslint":
+    globalNodePath: "/usr/local"
   "linter-jscs":
     esnext: true
     onlyConfig: true
-    displayAs: "jscs Error"
   "linter-jshint":
-    executablePath: "/usr/local/bin/jshint"
     disableWhenNoJshintrcFileInPath: true
-  "autocomplete-plus":
-    useLocalityBonus: false
-    enableBuiltinProvider: false
-    includeCompletionsFromAllBuffers: false
-    strictMatching: true
-  "atom-ternjs":
-    caseInsensitive: false
-    useSnippets: false
-    lint: false
-    excludeLowerPriorityProviders: true
-    guess: false
-    displayAboveSnippets: true
-    documentation: false
-    urls: false
-    origins: false
-    inlineFnCompletion: false
-  "autocomplete-php": {}
+    executablePath: "/usr/local/bin/jshint"
+  "linter-phpcs":
+    executablePath: "/usr/local/bin/phpcs"
+  "markdown-preview":
+    useGitHubStyle: true
+  "pinned-tabs":
+    animation: true
+  "spell-check": {}
+  "status-bar": {}
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
 ".apiary.source":
   editor:
     preferredLineLength: 120

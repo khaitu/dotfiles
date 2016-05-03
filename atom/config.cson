@@ -40,10 +40,15 @@
       "bower_components"
       "node_modules"
     ]
+    packagesWithKeymapsDisabled: [
+      "aligner"
+    ]
     projectHome: "~/Sites"
+  "custom-title":
+    template: "<%= fileName %><% if (fileInProject) { %> — <%= projectName %> ❄ <%= relativeFilePath %><% } %> — Atom"
   editor:
     autoIndentOnPaste: false
-    fontSize: 13
+    fontSize: 12
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true

@@ -1,2 +1,3 @@
 'atom-text-editor':
   'shift-cmd-a': 'aligner:align'
+  'shift-cmd-m': 'markdown-preview:toggle'

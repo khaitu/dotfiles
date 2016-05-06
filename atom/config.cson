@@ -42,6 +42,7 @@
     ]
     packagesWithKeymapsDisabled: [
       "aligner"
+      "markdown-preview"
     ]
     projectHome: "~/Sites"
   "custom-title":
@@ -82,6 +83,9 @@
     executablePath: "/usr/local/bin/phpcs"
   "markdown-preview":
     useGitHubStyle: true
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   "pinned-tabs":
     animation: true
   "spell-check": {}
@@ -94,6 +98,9 @@
   welcome:
     showOnStartup: false
 ".apiary.source":
+  editor:
+    preferredLineLength: 120
+".ini.source":
   editor:
     preferredLineLength: 120
 ".json.source":

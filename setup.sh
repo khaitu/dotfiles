@@ -44,7 +44,7 @@ do
     mv $local_atomconfig "$local_atomconfig.backup"
   fi
 
-  ln -s "$path/atom/$atomconfig" $local_atomconfig
+  ln -s "$path/.atom/$atomconfig" $local_atomconfig
 done
 
 # ensure package sync is installed

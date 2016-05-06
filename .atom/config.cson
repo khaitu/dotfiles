@@ -43,6 +43,7 @@
     packagesWithKeymapsDisabled: [
       "aligner"
       "markdown-preview"
+      "git-time-machine"
     ]
     projectHome: "~/Sites"
   "custom-title":
@@ -86,13 +87,25 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  pigments:
+    markerType: "square-dot"
   "pinned-tabs":
     animation: true
   "spell-check": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   "status-bar": {}
   tabs:
     enableVcsColoring: true
     usePreviewTabs: true
+  "todo-show":
+    openListInDirection: "down"
+    saveOutputAs: "Table"
+    sortBy: "Path"
   "tree-view":
     hideIgnoredNames: true
   welcome:

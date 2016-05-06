@@ -1,3 +1,6 @@
 'atom-text-editor':
   'shift-cmd-a': 'aligner:align'
   'shift-cmd-m': 'markdown-preview:toggle'
+
+'atom-workspace':
+  'shift-cmd-t': 'git-time-machine:toggle'

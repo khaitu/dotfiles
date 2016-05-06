@@ -11,6 +11,7 @@ packages: [
   "es6-javascript"
   "file-icons"
   "filesize"
+  "git-time-machine"
   "highlight-selected"
   "jshint"
   "linter"
@@ -20,7 +21,9 @@ packages: [
   "linter-phpcs"
   "merge-conflicts"
   "package-sync"
+  "pigments"
   "pinned-tabs"
   "pretty-json"
   "Stylus"
+  "todo-show"
 ]

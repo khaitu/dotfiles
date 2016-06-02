@@ -12,7 +12,7 @@
   old = red
   new = green
 [alias]
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  snapshot = "!f() { m=`echo $1 | tr -d '\"'`; git stash save \"snapshot: $m - $(date)\" && git stash apply \"stash@{0}\"; }; f"
   snapshots = !git stash list --grep snapshot
   recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
   cp = cherry-pick -x

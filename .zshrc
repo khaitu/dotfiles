@@ -53,13 +53,13 @@ git_prompt() {
   
   if [ ! -z "$ref" ]; then
     # echo " [\e[0;32m$ref\e[0m]"
-    prompt_segment blue white " $BRANCH $ref "
+    prompt_segment blue black " $BRANCH $ref "
   fi
 }
 
 # Path prompt
 path_prompt() {
-  prompt_segment black white ' %. '
+  prompt_segment yellow black ' %. '
 }
 
 # Silly star prompt

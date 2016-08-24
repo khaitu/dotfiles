@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "d3d8c0df-8074-4b60-8b47-6caf70842013"
   "atom-ternjs":
     caseInsensitive: false
     displayAboveSnippets: true
@@ -12,6 +15,10 @@
     useSnippets: false
   "autocomplete-php": {}
   "autocomplete-plus":
+    autoActivationDelay: 300
+    backspaceTriggersAutocomplete: true
+    confirmCompletion: "tab"
+    enableAutoConfirmSingleSuggestion: false
     enableBuiltinProvider: false
     includeCompletionsFromAllBuffers: false
     strictMatching: true
@@ -19,23 +26,22 @@
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
+    wrapSelectionsInBrackets: false
   core:
     audioBeep: false
     disabledPackages: [
-      "jshint"
-      "autocomplete-snippets"
       "spell-check"
       "linter-jscs"
-      "linter-jshint"
       "linter-phpcs"
       "pinned-tabs"
+      "ember-cli-helper"
+      "jshint"
     ]
     ignoredNames: [
       ".git"
       ".bundle"
       ".vagrant"
       ".DS_Store"
-      "dist"
       "tmp"
       "bower_components"
       "node_modules"
@@ -44,6 +50,7 @@
       "aligner"
       "markdown-preview"
       "git-time-machine"
+      "blame"
     ]
     projectHome: "~/Sites"
   "custom-title":
@@ -52,10 +59,11 @@
     autoIndentOnPaste: false
     fontSize: 12
     invisibles: {}
-    preferredLineLength: 120
+    lineHeight: 1.75
     showIndentGuide: true
     showInvisibles: true
   "ember-cli-helper": {}
+  "ember-tabs": {}
   "exception-reporting":
     userId: "32a1cf4c-e895-e70d-1592-704d5505050b"
   "file-icons":
@@ -72,6 +80,7 @@
   linter:
     errorPanelHeight: 91
     lintOnFly: false
+    showErrorTabProject: false
   "linter-eslint":
     globalNodePath: "/usr/local"
   "linter-jscs":
@@ -79,7 +88,6 @@
     onlyConfig: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
-    executablePath: "/usr/local/bin/jshint"
   "linter-phpcs":
     executablePath: "/usr/local/bin/phpcs"
   "markdown-preview":
@@ -88,9 +96,11 @@
     createOnChange: true
     forceOverwrite: true
   pigments:
-    markerType: "square-dot"
+    markerType: "dot"
   "pinned-tabs":
     animation: true
+  react:
+    disableAutoClose: true
   "spell-check": {}
   "split-diff":
     diffWords: true
@@ -99,7 +109,12 @@
     rightEditorColor: "green"
     syncHorizontalScroll: true
   "status-bar": {}
+  "symbols-list":
+    startUp: false
+  "symbols-tree-view":
+    scrollAnimation: false
   tabs:
+    addNewTabsAtEnd: true
     enableVcsColoring: true
     usePreviewTabs: true
   "todo-show":
@@ -112,10 +127,28 @@
     showOnStartup: false
 ".apiary.source":
   editor:
-    preferredLineLength: 120
+    preferredLineLength: 80
+".basic.html.text":
+  editor:
+    preferredLineLength: 80
+".coffee.jsx.source":
+  editor:
+    preferredLineLength: 80
 ".ini.source":
   editor:
-    preferredLineLength: 120
+    preferredLineLength: 80
+".js.jsx.source":
+  editor:
+    preferredLineLength: 80
+".js.regexp.replacement.source":
+  editor:
+    preferredLineLength: 80
+".js.regexp.source":
+  editor:
+    preferredLineLength: 80
+".js.source":
+  editor:
+    preferredLineLength: 80
 ".json.source":
   editor:
-    preferredLineLength: 120
+    preferredLineLength: 80

@@ -15,9 +15,8 @@
     useSnippets: false
   "autocomplete-php": {}
   "autocomplete-plus":
-    autoActivationDelay: 300
-    backspaceTriggersAutocomplete: true
-    confirmCompletion: "tab"
+    autoActivationDelay: 1000
+    consumeSuffix: false
     enableAutoConfirmSingleSuggestion: false
     enableBuiltinProvider: false
     includeCompletionsFromAllBuffers: false
@@ -69,8 +68,11 @@
   "file-icons":
     coloured: false
     onChanges: true
-  "find-and-replace": {}
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
   "git-diff": {}
+  "highlight-line":
+    enableUnderline: true
   "highlight-selected":
     lightTheme: true
   jshint:

@@ -27,6 +27,26 @@ do
   ln -s "$path/$dotfile" $home_dotfile
 done
 
+# sync visual studio code settings
+vscodeconfigs=(keybindings.json settings.json vsicons.settings.json)
+
+for vscodeconfig in ${vscodeconfigs[@]}
+do
+  local_vscodeconfig="$HOME/Library/Application Support/Code/User/$vscodeconfig"
+
+  if [ -h "$local_vscodeconfig" ]
+  then
+    rm "$local_vscodeconfig"
+  fi
+
+  if [ -f "$local_vscodeconfig" ]
+  then
+    mv "$local_vscodeconfig" "$local_vscodeconfig.backup"
+  fi
+
+  ln -s "$path/.vscode/$vscodeconfig" "$local_vscodeconfig"
+done
+
 # sync atom settings
 atomconfigs=(config.cson init.coffee keymap.cson packages.cson snippets.cson styles.less)
 

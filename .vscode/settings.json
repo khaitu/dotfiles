@@ -2,7 +2,7 @@
 {
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "editor.scrollBeyondLastLine": false,
-  "editor.rulers": [80],
+  "editor.rulers": [100],
   "editor.tabSize": 2,
   "editor.lineHeight": 20,
   "editor.renderWhitespace": "boundary",
@@ -31,8 +31,6 @@
 
   "git.countBadge": "off",
 
-  "vsicons.hideCustomFolderIcons": true,
-
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline",
   "terminal.integrated.fontSize": 11,
@@ -55,5 +53,6 @@
     "darkseagreen"
   ],
 
-  "ActiveFileInStatusBar.fullpath": false
+  "ActiveFileInStatusBar.fullpath": false,
+  "window.zoomLevel": -2
 }

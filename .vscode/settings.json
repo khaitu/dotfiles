@@ -1,6 +1,7 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "editor.scrollBeyondLastLine": false,
   "editor.rulers": [80],
   "editor.tabSize": 2,
@@ -8,9 +9,12 @@
   "editor.renderWhitespace": "boundary",
   "editor.selectionHighlight": false,
   "editor.renderIndentGuides": true,
-  "editor.wrappingColumn": -1,
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 80,
   "editor.hideCursorInOverviewRuler": true,
   "editor.folding": false,
+  "editor.quickSuggestions": false,
+  "editor.acceptSuggestionOnEnter": true,
 
   "diffEditor.renderSideBySide": false,
 
@@ -29,9 +33,12 @@
     "**/*.map": true
   },
 
-  "git.countBadge": "off",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
 
-  "vsicons.hideCustomFolderIcons": true,
+  "git.countBadge": "off",
 
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline",
@@ -55,5 +62,7 @@
     "darkseagreen"
   ],
 
-  "ActiveFileInStatusBar.fullpath": false
+  "ActiveFileInStatusBar.fullpath": false,
+  "workbench.colorTheme": "Base16 Dark Ocean",
+  "workbench.iconTheme": "vs-seti"
 }

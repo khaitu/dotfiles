@@ -49,11 +49,13 @@ prompt_end() {
 
 # Git branch in prompt.
 git_prompt() {
-  ref=$(git symbolic-ref HEAD  2> /dev/null | cut -d'/' -f3)
-  
+  ref=$(git symbolic-ref HEAD  2> /dev/null | cut -d'/' -f3,4,5,6)
+
   if [ ! -z "$ref" ]; then
     # echo " [\e[0;32m$ref\e[0m]"
     prompt_segment blue black " $BRANCH $ref "
+  elif [ -d .git ]; then
+    prompt_segment blue black " $BRANCH "
   fi
 }
 
@@ -71,7 +73,7 @@ tc_prompt() {
   RETVAL=$?
   path_prompt
   git_prompt
-  star_prompt
+#  star_prompt
   prompt_end
 }
 

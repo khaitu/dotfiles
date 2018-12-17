@@ -79,8 +79,10 @@ setopt prompt_subst
 
 # export PS1=$'%.$(git_prompt) \e[1;31m✪ \e[0m'
 
+ssh-add -K 2> /dev/null
+
 export PS1=$'$(tc_prompt) '
 
-export NVM_DIR="$(echo `pwd`)/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 

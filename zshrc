@@ -1,23 +1,20 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/tom/.oh-my-zsh"
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Theme
+ZSH_THEME="avit"
+
+# Config
+CASE_SENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+
+# Plugins
+plugins=(bundler colored-man-pages colorize docker fasd git heroku nvm vundle)
 
 # Disable shared history
 unsetopt share_history
-
-# Customize to your needs...
-for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
-
-# Remove RPROMPT
-RPROMPT=''
 
 # Prompt segments (from agnoster)
 CURRENT_BG='NONE'
@@ -47,42 +44,37 @@ prompt_end() {
   CURRENT_BG=''
 }
 
-# Git branch in prompt.
 git_prompt() {
   ref=$(git symbolic-ref HEAD  2> /dev/null | cut -d'/' -f3)
-  
+
   if [ ! -z "$ref" ]; then
     # echo " [\e[0;32m$ref\e[0m]"
     prompt_segment blue black " $BRANCH $ref "
   fi
 }
 
-# Path prompt
 path_prompt() {
   prompt_segment yellow black ' %. '
 }
 
-# Silly star prompt
-star_prompt() {
-  prompt_segment white red ' \u2605 '
-}
-
-tc_prompt() {
+full_prompt() {
   RETVAL=$?
   path_prompt
   git_prompt
-  star_prompt
   prompt_end
 }
 
+# Set prompt
 setopt prompt_subst
 
-# export PS1=$'%.$(git_prompt) \e[1;31m✪ \e[0m'
-
+# Enable ssh keychain
 ssh-add -K 2> /dev/null
 
-export PS1=$'$(tc_prompt) '
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# Override oh-my-zsh prompty
+export PS1=$'$(full_prompt) '
+
+RPROMPT=
 

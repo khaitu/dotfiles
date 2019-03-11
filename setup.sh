@@ -1,9 +1,14 @@
 #!/bin/sh
 
+echo "Installing Oh My Zsh…"
+
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # install dotfiles
+
+echo "Adding configs…"
+
 dotfiles=(gitconfig vimrc zshenv zshrc)
 path=`pwd`
 
@@ -23,6 +28,9 @@ do
 
   ln -s "$path/$dotfile" $home_dotfile
 done
+
+# reload zshrc
+source "$HOME/.zshrc"
 
 # install vundle plugins
 vundle

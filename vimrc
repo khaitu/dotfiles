@@ -115,6 +115,7 @@ set sessionoptions-=resize
 colorscheme base16-tomorrow-night
 
 let g:ag_working_path_mode = 'r'
+let g:ag_prg="ag --nobreak --column --nogroup --noheading"
 let g:airline_theme = 'base16'
 let g:ale_list_window_size = 10
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'

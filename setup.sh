@@ -5,6 +5,9 @@ echo "Installing Oh My Zsh…"
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# install apps
+brew install the_silver_searcher wget
+
 # install dotfiles
 
 echo "Adding configs…"

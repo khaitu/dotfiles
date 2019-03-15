@@ -86,13 +86,13 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'w0rp/ale'
 Plugin 'jistr/vim-nerdtree-tabs.git'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'JazzCore/ctrlp-cmatcher'
 " Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'xsunsmile/showmarks.git'
 Plugin 'SearchComplete'
 Plugin 'dsawardekar/ember.vim'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -100,6 +100,8 @@ Plugin 'rking/ag.vim'
 Plugin 'dsawardekar/portkey'
 Plugin 'kshenoy/vim-signature'
 Plugin 'rhysd/conflict-marker.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 filetype plugin indent on
@@ -123,14 +125,22 @@ let g:ale_sign_error = '!!'
 let g:ale_sign_warning = '!!'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
+let g:ale_linters= { 'html': [] }
 let g:polyglot_disabled = ['graphql']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:maplocalleader = ';'
+let g:NERDTreeWinSize = 40
 let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeIgnore = ['.git/*','tmp/*','.DS_Store','node_modules/*','bower_components/*']
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
 
 highlight SyntaxError term=bold,underline cterm=bold,underline ctermfg=1 gui=bold,underline guifg=#cc6666
 highlight SyntaxWarning term=bold,underline cterm=bold,underline ctermfg=1 gui=bold,underline guifg=#f0c674
+highlight IndentGuidesEven ctermbg=235
 highlight link ALEError SyntaxError
 highlight link ALEWarning IncSearch
 highlight link ALEErrorSign Error
@@ -146,3 +156,4 @@ augroup vimrc
   au Syntax * RainbowParenthesesLoadBraces
   au BufNewFile,BufRead *.hbs set filetype=mustache
 augroup END
+

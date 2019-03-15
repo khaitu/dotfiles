@@ -75,6 +75,9 @@ ssh-add -K 2> /dev/null
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Disable shared history
+unsetopt share_history
+
 # Override oh-my-zsh prompty
 export PS1=$'$(full_prompt) '
 

@@ -43,8 +43,11 @@ set background=dark
 
 syntax on
 
-" Change leader to a comma because the backslash is too far away
-" let mapleader=","
+let mapleader = ","
+
+inoremap jk <esc>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>

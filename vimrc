@@ -105,6 +105,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'rhysd/conflict-marker.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on

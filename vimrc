@@ -46,6 +46,7 @@ syntax on
 let mapleader = ","
 
 inoremap jk <esc>
+nnoremap <leader>c :noh<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 

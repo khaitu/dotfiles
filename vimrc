@@ -49,6 +49,8 @@ inoremap jk <esc>
 nnoremap <leader>c :noh<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap [<space> O<esc>
+nnoremap ]<space> o<esc>
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
@@ -80,8 +82,6 @@ set wildignore+=*/tmp/*
 " Search
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
-set ignorecase      " Ignore case when searching...
-set smartcase       " ...unless we type a capital
 
 " Plugins
 Plugin 'VundleVim/Vundle.vim'

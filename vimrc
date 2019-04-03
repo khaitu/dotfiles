@@ -44,6 +44,7 @@ set background=dark
 syntax on
 
 let mapleader = ","
+let maplocalleader =  ";"
 
 inoremap jk <esc>
 nnoremap <leader>c :noh<cr>
@@ -51,6 +52,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap [<space> O<esc>
 nnoremap ]<space> o<esc>
+nnoremap ]<cr> i<cr><esc>
+nnoremap ∆ :move .+1<cr>
+nnoremap ˚ :move .-2<cr>
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
@@ -94,12 +98,12 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'JazzCore/ctrlp-cmatcher'
 " Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sgur/vim-editorconfig'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'luochen1990/rainbow'
 Plugin 'SearchComplete'
 Plugin 'dsawardekar/ember.vim'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rking/ag.vim'
 Plugin 'dsawardekar/portkey'
 Plugin 'kshenoy/vim-signature'
@@ -107,6 +111,9 @@ Plugin 'rhysd/conflict-marker.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
+Plugin 'joukevandermaas/vim-ember-hbs'
+Plugin 'HeroicEric/vim-tabline'
+Plugin 'vim-scripts/cmdalias.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -124,6 +131,7 @@ colorscheme base16-tomorrow-night
 let g:ag_working_path_mode = 'r'
 let g:ag_prg="ag --nobreak --column --nogroup --noheading"
 let g:airline_theme = 'base16'
+let g:airline_section_b = '%{airline#util#wrap(airline#extensions#branch#get_head(),120)}'
 let g:ale_list_window_size = 10
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '!!'
@@ -142,6 +150,12 @@ let g:NERDTreeIgnore = ['.git/*','tmp/*','.DS_Store','node_modules/*','bower_com
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'ctermfgs': ['brown', 'darkblue', 'darkgray', 'darkgreen', 'darkcyan', 'darkred', 'darkmagenta', 'brown', 'gray', 'black', 'darkmagenta', 'darkblue', 'darkgreen', 'darkcyan', 'darkred', 'red'],
+\   'guifgs': ['royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3', 'royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3', 'royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3', 'royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3'],
+\   'separately': {'*': {}, 'html': 0, 'handlebars': 0}
+\ }
 
 highlight SyntaxError term=bold,underline cterm=bold,underline ctermfg=1 gui=bold,underline guifg=#cc6666
 highlight SyntaxWarning term=bold,underline cterm=bold,underline ctermfg=1 gui=bold,underline guifg=#f0c674
@@ -153,12 +167,16 @@ highlight link ALEWarningSign IncSearch
 highlight link ALEErrorLine SyntaxError
 highlight link ALEWarningLine SyntaxWarning
 
+function! g:DisableMatchParen ()
+  if exists(":NoMatchParen")
+    :NoMatchParen
+  endif
+endfunction
+
 augroup vimrc
   autocmd!
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
-  au BufNewFile,BufRead *.hbs set filetype=mustache
+  au BufNewFile,BufRead *.handlebars,*.hbs set filetype=html.handlebars syntax=handlebars
+  au VimEnter * call DisableMatchParen()
+  au VimEnter * Alias ag Ag!
 augroup END
 

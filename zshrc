@@ -72,6 +72,9 @@ setopt prompt_subst
 # Enable ssh keychain
 ssh-add -K 2> /dev/null
 
+# Disable flow control for vim ctrl-s
+stty -ixon
+
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 

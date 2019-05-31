@@ -39,32 +39,34 @@ set sidescrolloff=15
 set sidescroll=1
 set splitright
 set splitbelow
-set background=dark
+set iskeyword+=-
+set iskeyword+=/
+" set background=dark
 
 syntax on
 
 let mapleader = ","
-let maplocalleader =  ";"
+let g:maplocalleader =  ";"
 
 inoremap jk <esc>
+vnoremap jk <esc>
 nnoremap <leader>c :noh<cr>
+nnoremap <leader>d Y$p
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>tm :tabmove<cr>
+nnoremap <leader>tn :tabnew<cr> :tabmove<cr>
 nnoremap [<space> O<esc>
 nnoremap ]<space> o<esc>
 nnoremap ]<cr> i<cr><esc>
 nnoremap ∆ :move .+1<cr>
 nnoremap ˚ :move .-2<cr>
+nnoremap <leader>nt :NERDTree<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
 
 " Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
-
-filetype plugin on
-filetype indent on
-
-" Strip trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
+nnoremap <leader>p p=`]<C-o>
+nnoremap <leader>P P=`]<C-o>
 
 " Completion
 set wildmode=list:longest
@@ -114,6 +116,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'HeroicEric/vim-tabline'
 Plugin 'vim-scripts/cmdalias.vim'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -125,6 +129,8 @@ set sessionoptions-=localoptions
 set sessionoptions-=options
 set sessionoptions-=buffers
 set sessionoptions-=resize
+set formatoptions-=ro
+set formatoptions+=j
 
 colorscheme base16-tomorrow-night
 
@@ -139,23 +145,25 @@ let g:ale_sign_warning = '!!'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_linters= { 'html': [] }
-let g:polyglot_disabled = ['graphql']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+let g:goyo_width = 102
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
 let g:maplocalleader = ';'
 let g:NERDTreeWinSize = 40
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeIgnore = ['.git/*','tmp/*','.DS_Store','node_modules/*','bower_components/*']
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
+let g:NERDTreeIgnore = ['\.git/*','tmp/*','.DS_Store','node_modules/*','bower_components/*']
+let g:polyglot_disabled = ['graphql']
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'ctermfgs': ['brown', 'darkblue', 'darkgray', 'darkgreen', 'darkcyan', 'darkred', 'darkmagenta', 'brown', 'gray', 'black', 'darkmagenta', 'darkblue', 'darkgreen', 'darkcyan', 'darkred', 'red'],
 \   'guifgs': ['royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3', 'royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3', 'royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3', 'royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3'],
 \   'separately': {'*': {}, 'html': 0, 'handlebars': 0}
 \ }
+let g:vim_json_syntax_conceal = 0
 
 highlight SyntaxError term=bold,underline cterm=bold,underline ctermfg=1 gui=bold,underline guifg=#cc6666
 highlight SyntaxWarning term=bold,underline cterm=bold,underline ctermfg=1 gui=bold,underline guifg=#f0c674
@@ -178,5 +186,6 @@ augroup vimrc
   au BufNewFile,BufRead *.handlebars,*.hbs set filetype=html.handlebars syntax=handlebars
   au VimEnter * call DisableMatchParen()
   au VimEnter * Alias ag Ag!
+  au BufWritePre * %s/\s\+$//e
 augroup END
 

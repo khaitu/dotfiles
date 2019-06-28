@@ -50,6 +50,7 @@ let g:maplocalleader =  ";"
 
 inoremap jk <esc>
 vnoremap jk <esc>
+vnoremap <leader>/ :normal 0dwi// <cr>
 nnoremap <leader>c :noh<cr>
 nnoremap <leader>d Y$p
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -94,12 +95,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'w0rp/ale'
-Plugin 'jistr/vim-nerdtree-tabs.git'
+" Plugin 'jistr/vim-nerdtree-tabs.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'JazzCore/ctrlp-cmatcher'
-" Plugin 'editorconfig/editorconfig-vim'
 Plugin 'sgur/vim-editorconfig'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -114,7 +114,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'joukevandermaas/vim-ember-hbs'
-Plugin 'HeroicEric/vim-tabline'
 Plugin 'vim-scripts/cmdalias.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'junegunn/goyo.vim'
@@ -136,8 +135,19 @@ colorscheme base16-tomorrow-night
 
 let g:ag_working_path_mode = 'r'
 let g:ag_prg="ag --nobreak --column --nogroup --noheading"
-let g:airline_theme = 'base16'
-let g:airline_section_b = '%{airline#util#wrap(airline#extensions#branch#get_head(),120)}'
+let g:airline_theme = 'base16_tomorrow'
+let g:airline_section_b = ''
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'short_path'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 let g:ale_list_window_size = 10
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '!!'

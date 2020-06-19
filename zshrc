@@ -11,7 +11,7 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Plugins
-plugins=(bundler colored-man-pages colorize docker fasd git heroku nvm vundle)
+plugins=(colored-man-pages colorize docker fasd git heroku vundle fzf)
 
 # Disable shared history
 unsetopt share_history
@@ -70,7 +70,7 @@ full_prompt() {
 setopt prompt_subst
 
 # Enable ssh keychain
-ssh-add -K 2> /dev/null
+#ssh-add -K 2> /dev/null
 
 # Disable flow control for vim ctrl-s
 stty -ixon
@@ -81,8 +81,22 @@ source $ZSH/oh-my-zsh.sh
 # Disable shared history
 unsetopt share_history
 
+# Disable correction
+unsetopt correct_all
+
 # Override oh-my-zsh prompty
 export PS1=$'$(full_prompt) '
+
+# FZF
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+# RVM support
+source ~/.rvm/scripts/rvm
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 RPROMPT=
 

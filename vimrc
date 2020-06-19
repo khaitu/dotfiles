@@ -50,7 +50,7 @@ let g:maplocalleader =  ";"
 
 inoremap jk <esc>
 vnoremap jk <esc>
-vnoremap <leader>/ :normal 0dwi// <cr>
+vnoremap <leader>" :Commentary<cr>
 nnoremap <leader>c :noh<cr>
 nnoremap <leader>d Y$p
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -60,6 +60,8 @@ nnoremap <leader>tn :tabnew<cr> :tabmove<cr>
 nnoremap [<space> O<esc>
 nnoremap ]<space> o<esc>
 nnoremap ]<cr> i<cr><esc>
+nnoremap <C-P> :FZF<cr>
+nnoremap <C-F> :Ag<Space>
 nnoremap ∆ :move .+1<cr>
 nnoremap ˚ :move .-2<cr>
 nnoremap <leader>nt :NERDTree<cr>
@@ -90,23 +92,21 @@ set wildignore+=*/tmp/*
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 
+" FZF
+set rtp+=/usr/local/opt/fzf
+
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'w0rp/ale'
-" Plugin 'jistr/vim-nerdtree-tabs.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'sgur/vim-editorconfig'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'luochen1990/rainbow'
 Plugin 'SearchComplete'
-Plugin 'dsawardekar/ember.vim'
-Plugin 'rking/ag.vim'
 Plugin 'dsawardekar/portkey'
 Plugin 'kshenoy/vim-signature'
 Plugin 'rhysd/conflict-marker.vim'
@@ -117,6 +117,11 @@ Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'vim-scripts/cmdalias.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'junegunn/goyo.vim'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()
 filetype plugin indent on
@@ -194,8 +199,29 @@ endfunction
 augroup vimrc
   autocmd!
   au BufNewFile,BufRead *.handlebars,*.hbs set filetype=html.handlebars syntax=handlebars
+  au BufNewFile,BufRead *.scss set filetype=sass syntax=sass
+  au BufNewFile,BufRead *.slim set filetype=slim syntax=slim
   au VimEnter * call DisableMatchParen()
-  au VimEnter * Alias ag Ag!
   au BufWritePre * %s/\s\+$//e
 augroup END
+
+function! Wipeout()
+    "From tabpagebuflist() help, get a list of all buffers in all tabs
+    let tablist = []
+    for i in range(tabpagenr('$'))
+        call extend(tablist, tabpagebuflist(i + 1))
+    endfor
+
+    "Below originally inspired by Hara Krishna Dara and Keith Roberts
+    "http://tech.groups.yahoo.com/group/vim/message/56425
+    let nWipeouts = 0
+    for i in range(1, bufnr('$'))
+        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
+        "bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
+            silent exec 'bwipeout' i
+            let nWipeouts = nWipeouts + 1
+        endif
+    endfor
+    echomsg nWipeouts . ' buffer(s) wiped out'
+endfunction
 

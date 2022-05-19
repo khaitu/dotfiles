@@ -17,10 +17,14 @@
   recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
   co = checkout
   cob = checkout -b
+  pu = push -u origin HEAD
   cp = cherry-pick -x
   st = status
   last = diff HEAD^
   ds = diff --staged
+  dst = difftool --staged
+  dft = difftool
+  ffm = fetch . HEAD:main
   ls = log --pretty=format:"%C(yellow)%h\\ %Cblue%cn%Cred%d\\ %Creset%s\\ -\\ %Cgreen%cr" --decorate
   ll = log --pretty=format:"%C(yellow)%h\\ %Cblue%cn%Cred%d\\ %Creset%s\\ -\\ %Cgreen%cr" --decorate --name-status
   undo = reset --soft HEAD^
@@ -78,3 +82,5 @@
   tool = Kaleidoscope
 [url "ssh://"]
   insteadOf = git://
+[pull]
+	rebase = false

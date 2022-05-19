@@ -1,3 +1,7 @@
+# export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('mvim')
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -11,7 +15,7 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Plugins
-plugins=(colored-man-pages colorize docker fasd git heroku vundle fzf)
+plugins=(colored-man-pages colorize docker fasd git heroku vundle fzf zsh-nvm)
 
 # Disable shared history
 unsetopt share_history
@@ -94,9 +98,16 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 source ~/.rvm/scripts/rvm
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 RPROMPT=
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+eval "$(starship init zsh)"

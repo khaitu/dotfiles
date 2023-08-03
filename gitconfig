@@ -28,6 +28,7 @@
   ls = log --pretty=format:"%C(yellow)%h\\ %Cblue%cn%Cred%d\\ %Creset%s\\ -\\ %Cgreen%cr" --decorate
   ll = log --pretty=format:"%C(yellow)%h\\ %Cblue%cn%Cred%d\\ %Creset%s\\ -\\ %Cgreen%cr" --decorate --name-status
   undo = reset --soft HEAD^
+  fbp = "!f() { git co $1; git fetch; git merge --no-edit origin/main; git push; }; f"
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [merge]
